@@ -19,19 +19,168 @@
         <div class="triangle-right"></div>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+                <section data-markdown class="noslidenumber">
+                    <script type="text/template" style="text-align: left">
+                        # 研究・教育計画発表
+
+                        ### Junqueira Saldanha, Matheus Henrique<br> <small>ジュンケイラ　サウダニャ　マテウス　エンリッケ</small>
+                        
+                        #### 筑波大学 コンピュータサイエンス専攻 博士後期課程 在籍 <br> <small>（2026年3月修了予定）</small>
+
+                        #### 筑波大学 工学修士（コンピュータサイエンス）
+                        
+                        #### São Paulo大学理学修士（統計学）
+                        <br>
+                        2025年9月
+                        <br><br><br><br>
+                    </script>
+                </section>
+
+                <!-- Slides are separated by three dashes (the default) -->
+                <section data-markdown>
+                    <script type="text/template">
+                        # これまでの研究
+                        ## 地震予測
+
+                        - 目的：断層非依存型の地震カタログを最大限に活用する方法を解析する
+                            - 最も広く利用可能な地震カタログの形式である
+                            - 既存研究では，これらに含まれる情報を十分に引き出せていないと考えられる
+                        
+                        <div class="container fragment"><div class="col" data-markdown>
+
+                        - 検討した研究手法：
+                            - 特徴量エンジニアリング
+                            - ニューラルネットワーク
+                            - サポートベクターマシン
+                            - 編集距離
+                        </div>
+                        <div class="col">
+                            <img src="japan-earthquakes.png" alt="drawing" style="width: 60%; height: auto; margin: 0;"/>
+                            <p>Help</p>
+                        </div></div>
+                        ---
+                        # これまでの研究
+                        ## 局地推定
+                        ---
+                        ## Demo 1
+                        Slide 3
+                    </script>
+                </section>
+
+                <!-- Slides are separated by regexp matching newline + three dashes + newline, vertical slides identical but two dashes -->
+                <section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
+                    <script type="text/template">
+                        ## Demo 2
+                        Slide 1.1
+
+                        --
+
+                        ## Demo 2
+                        Slide 1.2
+
+                        ---
+
+                        ## Demo 2
+                        Slide 2
+                    </script>
+                </section>
+
+                <!-- No "extra" slides, since the separator can't be matched ("---" will become horizontal rulers) -->
+                <section data-markdown data-separator="$x">
+                    <script type="text/template">
+                        A
+
+                        ---
+
+                        B
+
+                        ---
+
+                        C
+                    </script>
+                </section>
+
+                <!-- Slide attributes -->
+                <section data-markdown>
+                    <script type="text/template">
+                        <!-- .slide: data-background="#000000" -->
+                        ## Slide attributes
+                    </script>
+                </section>
+
+                <!-- Element attributes -->
+                <section data-markdown>
+                    <script type="text/template">
+                        ## Element attributes
+                        - Item 1 <!-- .element: class="fragment" data-fragment-index="2" -->
+                        - Item 2 <!-- .element: class="fragment" data-fragment-index="1" -->
+                    </script>
+                </section>
+
+                <!-- Code -->
+                <section data-markdown>
+                    <script type="text/template">
+                        ```php [1|3-5]
+                        public function foo()
+                        {
+                            $foo = array(
+                                'bar' => 'bar'
+                            )
+                        }
+                        ```
+                    </script>
+                </section>
+
+                <!-- add optional line count offset, in this case 287 -->
+                <section data-markdown>
+                    <script type="text/template">
+                        ## echo.c
+
+                        ```c [287: 2|4,6]
+                        /* All of the options in this arg are valid, so handle them. */
+                        p = arg + 1;
+                        do {
+                            if (*p == 'n')
+                                nflag = 0;
+                            if (*p == 'e')
+                                eflag = '\\';
+                        } while (*++p); 
+                        ```
+                        [source](https://git.busybox.net/busybox/tree/coreutils/echo.c?h=1_36_stable#n287)
+                    </script>
+                </section>
+
+                <!-- Images -->
+                <section data-markdown>
+                    <script type="text/template">
+                        ![Sample image](https://static.slid.es/logo/v2/slides-symbol-512x512.png)
+                    </script>
+                </section>
+
+                <!-- Math -->
+                <section data-markdown>
+					## The Lorenz Equations
+					$$
+                    \begin{aligned}
+					\dot{x} & = \sigma(y-x) \\\\
+					\dot{y} & = \rho x - y - xz \\\\
+					\dot{z} & = -\beta z + xy
+					\end{aligned}
+                    $$
+                </section>
+
+            </div>
 		</div>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
+		<script src="../dist/reveal.js"></script>
+        <script src="../plugin/markdown/markdown.js"></script>
+        <script src="../plugin/highlight/highlight.js"></script>
+        <script src="../plugin/notes/notes.js"></script>
+        <script src="../plugin/math/math.js"></script>
+        <script src="../plugin/zoom/zoom.js"></script>
+
 		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
+
 			Reveal.initialize({
 				hash: true,
 
