@@ -178,14 +178,29 @@
         <script src="../plugin/notes/notes.js"></script>
         <script src="../plugin/math/math.js"></script>
         <script src="../plugin/zoom/zoom.js"></script>
+        <script src="../plugin/pointer/pointer.js"></script>
 
 		<script>
 
 			Reveal.initialize({
-				hash: true,
+                width: 960,
+	            height: 700,
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+                slideNumber: "c",
+                
+				plugins: [ RevealZoom, RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX, RevealPointer ],
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+                pointer: {
+                    key: "q", // key to enable pointer, default "q", not case-sensitive
+                    color: "red", // color of a cursor, default "red" any valid CSS color
+                    opacity: 0.8, // opacity of cursor, default 0.8
+                    pointerSize: 16, // pointer size in px, default 12
+                    alwaysVisible: false, // should pointer mode be always visible? default "false"
+                    tailLength: 10, // NOT IMPLEMENTED YET!!! how long the "tail" should be? default 10
+                }
 			});
 		</script>
 	</body>
