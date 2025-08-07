@@ -203,6 +203,42 @@
                     tailLength: 10, // NOT IMPLEMENTED YET!!! how long the "tail" should be? default 10
                 }
 			});
+
+            Reveal.addEventListener('ready', function(event) {
+                const entered = event.currentSlide;   // the slide you entered
+                const indices = Reveal.getIndices();
+                const horizontalIndex = indices.h; // Horizontal slide index
+                const verticalIndex = indices.v;   // Vertical slide index
+                const fragmentIndex = indices.f;   // Fragment index within the slide
+                const flattenedIndex = Reveal.getSlidePastCount();
+
+                // Enter logic
+                if (entered && horizontalIndex === 0) {
+                    addTitleTriangles();
+                }
+            });
+
+            Reveal.addEventListener('slidechanged', function(event) {
+                const entered = event.currentSlide;   // the slide you entered
+                const left = event.previousSlide;     // the slide you came from (may be null)
+                const indices = Reveal.getIndices();
+                const horizontalIndex = indices.h; // Horizontal slide index
+                const verticalIndex = indices.v;   // Vertical slide index
+                const fragmentIndex = indices.f;   // Fragment index within the slide
+                const flattenedIndex = Reveal.getSlidePastCount();
+
+                // Enter logic
+                if (entered && horizontalIndex === 0) {
+                    addTitleTriangles();
+                }
+
+                // Leave logic
+                if (entered && horizontalIndex === 1) {
+                    removeTitleTriangles();
+                }
+
+            });
 		</script>
+
 	</body>
 </html>
