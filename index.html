@@ -216,6 +216,11 @@
                 if (entered && horizontalIndex === 0) {
                     addTitleTriangles();
                 }
+                
+                if (entered && entered.classList.contains("noslidenumber")) {
+                    document.querySelector(".slide-number").classList.remove("fade-in");
+                    document.querySelector(".slide-number").classList.add("fade-out");
+                }
             });
 
             Reveal.addEventListener('slidechanged', function(event) {
@@ -237,6 +242,13 @@
                     removeTitleTriangles();
                 }
 
+                if (entered && entered.classList.contains("noslidenumber")) {
+                    document.querySelector(".slide-number").classList.remove("fade-in");
+                    document.querySelector(".slide-number").classList.add("fade-out");
+                } else {
+                    document.querySelector(".slide-number").classList.remove("fade-out");
+                    document.querySelector(".slide-number").classList.add("fade-in");
+                }
             });
 		</script>
 
