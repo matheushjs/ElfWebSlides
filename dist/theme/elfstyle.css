@@ -8,6 +8,111 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   color: #fff;
 }
 
+.reveal .slides section ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 1.6em; /* indentation for the list block */
+}
+
+.reveal .slides section ul ul {
+  padding-left: 1.2em;
+}
+
+.reveal .slides section ul ul ul {
+  padding-left: 1.2em;
+}
+
+.reveal .slides section ul li {
+  position: relative;
+  padding-left: 1.2em; /* space for the icon */
+  margin-bottom: 0.45em;
+  line-height: 1.35;
+}
+
+/* top-level icon (level 1) */
+.reveal .slides section ul > li::before,
+.reveal .slides section ul:not(ul) > li::before {
+  content: "\f04b"; /* fa-circle (FontAwesome) */
+  font-family: "Font Awesome 7 Free"; /* or Font Awesome 5 depending on your CDN */
+  font-weight: 900; /* solid for FA6; use 400 for regular */
+  position: absolute;
+  left: 0;
+  top: 0.1em; /* tweak vertical alignment */
+  font-size: 0.8em; /* icon size relative to text */
+  color: var(--slide-foreground, #212121);
+}
+
+/* second-level icon (ul inside ul) */
+.reveal .slides section ul ul > li::before {
+  content: "\f064"; /* fa-angle-right */
+  font-family: "Font Awesome 7 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 0.05em;
+  top: 0.18em;
+  font-size: 0.7em;
+  transform: scaleY(-1);
+  color: var(--slide-foreground, #00b0b0);
+}
+
+/* third-level icon */
+.reveal .slides section ul ul ul > li::before,
+.reveal .slides section ul ul ul ul > li::before {
+  content: "\f105"; /* fa-star */
+  font-family: "Font Awesome 7 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 0.8em;
+  top: 0.35em;
+  font-size: 0.65em;
+  color: var(--slide-foreground, #212121);
+}
+
+.reveal ol {
+  list-style-type: none !important; /* remove default numbers */
+  counter-reset: my-counter; /* start at 0 */
+  padding-left: 1.2em; /* space for the bullets */
+}
+
+.reveal ol > li {
+  counter-increment: my-counter; /* increment for each item */
+  position: relative; /* to place the pseudo-element */
+  margin: 0.6em 0;
+}
+
+.reveal ol > li::before {
+  content: counter(my-counter);
+  position: absolute;
+  left: -1.7em; /* position to the left of text */
+  top: 0.65em;
+  transform: translateY(-50%); /* center vertically */
+  width: 1.3em;
+  height: 1.3em;
+  line-height: 1.3em;
+  border-radius: 50%;
+  background-color: #00b0b0; /* circle color */
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+.reveal ol ol > li::before {
+  width: 1.1em;
+  height: 1.1em;
+  line-height: 1.1em;
+  background-color: #212121;
+}
+
+.reveal ol ol ol > li::before {
+  content: counter(my-counter) ". ";
+  width: 1em;
+  height: 1em;
+  line-height: 1.15em;
+  left: -1.4em;
+  background-color: transparent;
+  color: black;
+}
 
 .container {
   display: flex;
