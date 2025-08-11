@@ -8,6 +8,18 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   color: #fff;
 }
 
+.reveal .slide-number {
+  font-size: 24pt; /* Increase font size */
+  color: black; /* Change text color to white */
+  background-color: initial;
+  font-family: "Arial", sans-serif; /* Change font family */
+  font-weight: bold; /* Make it bold */
+  bottom: 20px; /* Adjust vertical position */
+  left: 20px; /* Adjust horizontal position */
+  right: auto;
+  /* Add any other CSS properties you want to modify */
+}
+
 .reveal .slides section ul {
   list-style: none;
   margin: 0;
