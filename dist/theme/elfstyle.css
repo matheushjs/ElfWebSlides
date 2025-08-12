@@ -10,10 +10,10 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 
 .reveal .slide-number {
   font-size: 24pt; /* Increase font size */
-  color: black; /* Change text color to white */
+  color: #126262; /* Change text color to white */
   background-color: initial;
-  font-family: "Arial", sans-serif; /* Change font family */
-  font-weight: bold; /* Make it bold */
+  font-family: sans-serif; /* Change font family */
+  font-style: italic; /* Make it bold */
   bottom: 20px; /* Adjust vertical position */
   left: 20px; /* Adjust horizontal position */
   right: auto;
