@@ -20,6 +20,10 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   /* Add any other CSS properties you want to modify */
 }
 
+.reveal .slide-number a:hover {
+  color: #126262;
+}
+
 .reveal .controls {
   color: #126262;
 }
