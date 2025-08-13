@@ -158,6 +158,30 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   clip-path: polygon(100% 0%, 100% 100%, 0% 100%);
 }
 
+.triangle-right2 {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 70%;
+  height: 70%;
+  z-index: -2;
+  background-color: #126262;
+  opacity: 0%;
+  clip-path: polygon(100% 0%, 100% 100%, 0% 100%);
+}
+
+.triangle-up-right {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 40%;
+  z-index: -2;
+  background-color: #212121;
+  opacity: 0%;
+  clip-path: polygon(100% 0%, 100% 100%, 0% 0%);
+}
+
 .fade-out {
   opacity: 0;
   transition: opacity 0.5s ease-out; /* Adjust duration and timing function as needed */

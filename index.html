@@ -17,10 +17,12 @@
 	<body>
         <div class="triangle-left"></div>
         <div class="triangle-right"></div>
+        <div class="triangle-right2"></div>
+        <div class="triangle-up-right"></div>
 		<div class="reveal">
 			<div class="slides">
                 <section data-markdown class="noslidenumber">
-                    <script type="text/template" style="text-align: left">
+                    <script type="text/template">
                         # 研究・教育計画発表
 
                         ### Junqueira Saldanha, Matheus Henrique<br> <small>ジュンケイラ　サウダニャ　マテウス　エンリッケ</small>
@@ -243,8 +245,15 @@
                 }
 
                 // Leave logic
-                if (entered && horizontalIndex === 1) {
+                if (entered && horizontalIndex !== 0) {
                     removeTitleTriangles();
+                }
+
+                console.log(entered);
+                if (entered && entered.querySelector(".toc")){
+                    addTocTriangles();
+                } else {
+                    removeTocTriangles();
                 }
 
                 if (entered && entered.classList.contains("noslidenumber")) {
