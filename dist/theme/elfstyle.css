@@ -20,6 +20,10 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   /* Add any other CSS properties you want to modify */
 }
 
+.reveal .controls {
+  color: #126262;
+}
+
 .reveal .slides section ul {
   list-style: none;
   margin: 0;
@@ -102,7 +106,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   height: 1.3em;
   line-height: 1.3em;
   border-radius: 50%;
-  background-color: #00b0b0; /* circle color */
+  background-color: #212121; /* circle color */
   color: white;
   font-weight: bold;
   text-align: center;
@@ -113,7 +117,7 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   width: 1.1em;
   height: 1.1em;
   line-height: 1.1em;
-  background-color: #212121;
+  background-color: #00b0b0;
 }
 
 .reveal ol ol ol > li::before {
@@ -521,9 +525,9 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 /*********************************************
  * NAVIGATION CONTROLS
  *********************************************/
-.reveal .controls {
+/*.reveal .controls {
   color: var(--r-link-color);
-}
+}*/
 
 /*********************************************
  * PROGRESS BAR
