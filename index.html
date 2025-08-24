@@ -43,8 +43,7 @@
                 </section>
 
                 <!-- Slides are separated by three dashes (the default) -->
-                <section data-markdown>
-                    <script type="text/template">
+                <section data-markdown data-section="これまでの研究" data-subsection="地震予測"><script type="text/template">
                         # これまでの研究
                         ## 地震予測
 
@@ -64,14 +63,17 @@
                             <img src="japan-earthquakes.png" alt="drawing" style="width: 60%; height: auto; margin: 0;"/>
                             <p>Help</p>
                         </div></div>
-                        ---
-                        # これまでの研究
-                        ## 局地推定
-                        ---
-                        ## Demo 1
-                        Slide 3
-                    </script>
-                </section>
+                </script></section>
+
+                <section data-markdown data-subsection="地震予測"><script type="text/template">
+                    # これまでの研究
+                    ## 局地推定
+                </script></section>
+
+                <section data-markdown data-subsection="Demo 1"><script type="text/template">
+                    ## Demo 1
+                    Slide 3
+                </script></section>
 
                 <!-- Slides are separated by regexp matching newline + three dashes + newline, vertical slides identical but two dashes -->
                 <section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
