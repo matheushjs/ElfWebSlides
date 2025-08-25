@@ -65,7 +65,7 @@
                         </div></div>
                 </script></section>
 
-                <section data-markdown data-subsection="地震予測"><script type="text/template">
+                <section data-markdown data-subsection="地震予測 again"><script type="text/template">
                     # これまでの研究
                     ## 局地推定
                 </script></section>
@@ -75,23 +75,20 @@
                     Slide 3
                 </script></section>
 
-                <!-- Slides are separated by regexp matching newline + three dashes + newline, vertical slides identical but two dashes -->
-                <section data-markdown data-separator="^\n---\n$" data-separator-vertical="^\n--\n$">
-                    <script type="text/template">
-                        ## Demo 2
-                        Slide 1.1
+                <section data-markdown data-section="Demo 2"><script type="text/template">
+                    ## Demo 2
+                    Slide 1.1
+                </script></section>
 
-                        --
+                <section data-markdown data-subsection="Demo 2 subsection"><script type="text/template">
+                    ## Demo 2
+                    Slide 1.2
+                </script></section>
 
-                        ## Demo 2
-                        Slide 1.2
-
-                        ---
-
-                        ## Demo 2
-                        Slide 2
-                    </script>
-                </section>
+                <section data-markdown data-subsection="Demo 2 subsection 2"><script type="text/template">
+                    ## Demo 2
+                    Slide 2
+                </script></section>
 
                 <!-- No "extra" slides, since the separator can't be matched ("---" will become horizontal rulers) -->
                 <section data-markdown data-separator="$x">

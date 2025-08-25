@@ -23,62 +23,96 @@
 
     // Find all section elements inside reveal slides container
     const allSections = document.querySelectorAll('.reveal .slides > section');
-    var toctree = {};
+    var slidesData = [];
 
-    allSections.forEach((slide, idx) => {
-        const seq = idx + 1; // slide sequence number starting at 1
-        // Find h1 and h2 inside this slide
-        const h1 = slide.querySelector('h1');
-        // For h2s: collect h2 elements that are descendants of the slide (but after an h1 if desired)
-        const h2 = slide.querySelector('h2');
+    // Get data for each slide.
+    allSections.forEach((node, idx) => {
+      obj = {"node": node};
 
-        const idName = slide.id || "slide" + String(seq);
-        slide.id = idName;
+      const seq = idx + 1; // slide sequence number starting at 1
+      const idName = node.id || "slide" + String(seq);
+      node.id = idName;
 
-        if(!h1 || !h1.textContent){
-            return;
-        } else if(h1.textContent.trim() in toctree && h2){
-            toctree[h1.textContent.trim()][h2.textContent.trim()] = {"slideid": idName}
-        } else {
-            toctree[h1.textContent.trim()] = {"slideid": idName}
-            if(h2){
-                toctree[h1.textContent.trim()][h2.textContent.trim()] = {"slideid": idName}
-            }
-        }
-    });
+      obj["slideid"] = idName;
+
+      if("data-section" in node.attributes){
+        let secName = node.attributes["data-section"].value;
+        obj["secName"] = secName;
+      }
+
+      if("data-subsection" in node.attributes){
+        let subsecName = node.attributes["data-subsection"].value;
+        obj["subsecName"] = subsecName;
+      }
+
+      slidesData.push(obj);
+    })
+
+    console.log(slidesData);
+
+    // Build TOC hierarchy
+    var tocData = [];
+    var lastSec = null;
+    slidesData.forEach(obj => {
+      if(obj["secName"] && obj["subsecName"]){
+        var newObj = {
+          "secName": obj["secName"],
+          "subsecs": [{
+            "subsecName": obj["subsecName"],
+            "slideid": obj["slideid"]
+          }],
+          "slideid": obj["slideid"]
+        };
+        tocData.push(newObj);
+        lastSec = newObj;
+      } else if (obj["secName"]){
+        var newObj = {
+          "secName": obj["secName"],
+          "subsecs": [],
+          "slideid": obj["slideid"]
+        };
+        tocData.push(newObj);
+        lastSec = newObj;
+      } else if (obj["subsecName"]){
+        lastSec["subsecs"].push({
+          "subsecName": obj["subsecName"],
+          "slideid": obj["slideid"]
+        });
+      }
+    })
+
+    console.log(tocData);
 
     // Build the hierarchical list
     const ol = document.createElement('ol');
     ol.className = 'toc-root';
-    
-    for(var h1 in toctree){
+
+    for(var sec of tocData){
+        console.log(sec);
+
         const li = document.createElement('li');
+        li.className = 'toc-elem';
 
         // create link for h1
         const a = document.createElement('a');
-        a.href = '#' + toctree[h1]["slideid"]; // user-friendly anchor
-        a.textContent = h1;
+        a.href = '#' + sec["slideid"]; // user-friendly anchor
+        a.textContent = sec["secName"];
         
         li.appendChild(a);
 
         const innerOl = document.createElement('ol');
-        innerOl.className = 'toc-sub';
-        for(var h2 in toctree[h1]){
-            if(h2 === "slideid")
-                continue;
-
+        innerOl.className = 'toc-subelem';
+        for(var subsec of sec["subsecs"]){
             const li2 = document.createElement('li');
             const a2 = document.createElement('a');
-            a2.href = '#' + toctree[h1][h2]["slideid"]; // human-friendly but not used for navigation
-            a2.textContent = h2;
+            a2.href = '#' + subsec["slideid"];
+            a2.textContent = subsec["subsecName"];
             li2.appendChild(a2);
             innerOl.appendChild(li2);
         }
         li.appendChild(innerOl);
         ol.appendChild(li);
     }
-    // optionally add the sequence number before the text (uncomment if desired)
-    // const numberSpan = document.createElement('span'); numberSpan.className = 'toc-num'; numberSpan.textContent = seq + ' '; li.appendChild(numberSpan);
 
     // Clear previous TOC content and append new list
     tocContainer.forEach(elem => {        
@@ -90,7 +124,44 @@
 
         elem.innerHTML = '';
         elem.appendChild(ol);
-    })
+    });
+
+    // Add TOC before sections and subsections
+    slidesData.forEach(obj => {
+      if(obj["subsecName"]){
+        var clonedToc = ol.cloneNode(true);
+
+        // Make all <a> fade
+        let allAnchors = clonedToc.querySelectorAll("a");
+        allAnchors.forEach(a => {
+          a.classList.add("toc-faded");
+        });
+
+        console.log(clonedToc);
+
+        // Find the proper element
+        var elem = Array.from(clonedToc.querySelectorAll("li > a")).filter(node => node.innerText === obj["subsecName"]);
+        elem = elem[0];
+        elem.classList.remove("toc-faded");
+        while(!(elem.classList.contains("toc-elem"))){
+          elem = elem.parentNode;
+        }
+        elem.querySelector("a").classList.remove("toc-faded");
+
+        console.log(clonedToc);
+
+        var newSection = document.createElement("section");
+        var newh1 = document.createElement("h1");
+        newh1.innerText = "Table of Contents"
+        newSection.appendChild(newh1);
+        newSection.appendChild(clonedToc);
+        
+        var parent = obj.node.parentNode;
+        parent.insertBefore(newSection, obj.node);
+      }
+    });
+
+    Reveal.sync();
 
     // OPTIONAL: update active TOC item on slide change
     function highlightActive(ev) {
