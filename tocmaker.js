@@ -121,6 +121,7 @@
         header.innerText = "Table of Contents";
         elem.parentNode.prepend(header);
         elem.parentNode.classList.add("noslidenumber")
+        elem.parentNode.style = "text-align: left;"
 
         elem.innerHTML = '';
         elem.appendChild(ol);
@@ -152,6 +153,7 @@
 
         var newSection = document.createElement("section");
         newSection.classList.add("noslidenumber");
+        newSection.style = "text-align: left;"
         var newh1 = document.createElement("h1");
         newh1.innerText = "Table of Contents"
         newSection.appendChild(newh1);
