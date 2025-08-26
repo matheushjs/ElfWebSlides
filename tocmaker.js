@@ -151,6 +151,7 @@
         console.log(clonedToc);
 
         var newSection = document.createElement("section");
+        newSection.classList.add("noslidenumber");
         var newh1 = document.createElement("h1");
         newh1.innerText = "Table of Contents"
         newSection.appendChild(newh1);
