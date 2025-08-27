@@ -48,8 +48,6 @@
       slidesData.push(obj);
     })
 
-    console.log(slidesData);
-
     // Build TOC hierarchy
     var tocData = [];
     var lastSec = null;
@@ -80,8 +78,6 @@
         });
       }
     })
-
-    console.log(tocData);
 
     // Build the hierarchical list
     const ol = document.createElement('ol');
@@ -138,8 +134,6 @@
           a.classList.add("toc-faded");
         });
 
-        console.log(clonedToc);
-
         // Find the proper element
         var elem = Array.from(clonedToc.querySelectorAll("li > a")).filter(node => node.innerText === obj["subsecName"]);
         elem = elem[0];
@@ -148,8 +142,6 @@
           elem = elem.parentNode;
         }
         elem.querySelector("a").classList.remove("toc-faded");
-
-        console.log(clonedToc);
 
         var newSection = document.createElement("section");
         newSection.classList.add("noslidenumber");
@@ -161,7 +153,7 @@
         
         var parent = obj.node.parentNode;
         parent.insertBefore(newSection, obj.node);
-      }
+      } 
     });
 
     Reveal.sync();
