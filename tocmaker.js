@@ -153,7 +153,31 @@
         
         var parent = obj.node.parentNode;
         parent.insertBefore(newSection, obj.node);
-      } 
+      } else if(obj["secName"]){
+        var clonedToc = ol.cloneNode(true);
+
+        // Make all <a> fade
+        let allAnchors = clonedToc.querySelectorAll("a");
+        allAnchors.forEach(a => {
+          a.classList.add("toc-faded");
+        });
+
+        // Find the proper element
+        var elem = Array.from(clonedToc.querySelectorAll("li > a")).filter(node => node.innerText === obj["secName"]);
+        elem = elem[0];
+        elem.classList.remove("toc-faded");
+
+        var newSection = document.createElement("section");
+        newSection.classList.add("noslidenumber");
+        newSection.style = "text-align: left;"
+        var newh1 = document.createElement("h1");
+        newh1.innerText = "Table of Contents"
+        newSection.appendChild(newh1);
+        newSection.appendChild(clonedToc);
+        
+        var parent = obj.node.parentNode;
+        parent.insertBefore(newSection, obj.node);
+      }
     });
 
     Reveal.sync();
