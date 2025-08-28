@@ -84,8 +84,6 @@
     ol.className = 'toc-root';
 
     for(var sec of tocData){
-        console.log(sec);
-
         const li = document.createElement('li');
         li.className = 'toc-elem';
 
