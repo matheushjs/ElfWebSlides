@@ -125,7 +125,9 @@
 
     // Add TOC before sections and subsections
     slidesData.forEach(obj => {
-      if(obj["subsecName"]){
+      if("data-notoc" in obj.node.attributes){
+        return;
+      } else if(obj["subsecName"]){
         var clonedToc = ol.cloneNode(true);
 
         // Make all <a> fade
