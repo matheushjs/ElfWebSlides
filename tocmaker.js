@@ -116,7 +116,7 @@
         elem.parentNode.prepend(header);
         elem.parentNode.classList.add("noslidenumber")
         elem.parentNode.style = "text-align: left;"
-
+        elem.parentNode.setAttribute("data-visibility", "uncounted");
         elem.innerHTML = '';
         elem.appendChild(ol);
     });
@@ -145,7 +145,8 @@
 
         var newSection = document.createElement("section");
         newSection.classList.add("noslidenumber");
-        newSection.style = "text-align: left;"
+        newSection.style = "text-align: left;";
+        newSection.setAttribute("data-visibility", "uncounted");
         var newh1 = document.createElement("h1");
         newh1.innerText = "Table of Contents"
         newSection.appendChild(newh1);
@@ -169,7 +170,8 @@
 
         var newSection = document.createElement("section");
         newSection.classList.add("noslidenumber");
-        newSection.style = "text-align: left;"
+        newSection.style = "text-align: left;";
+        newSection.setAttribute("data-visibility", "uncounted");
         var newh1 = document.createElement("h1");
         newh1.innerText = "Table of Contents"
         newSection.appendChild(newh1);
