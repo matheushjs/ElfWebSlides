@@ -114,7 +114,8 @@
         var header = document.createElement('h1');
         header.innerText = "Table of Contents";
         elem.parentNode.prepend(header);
-        elem.parentNode.classList.add("noslidenumber")
+        elem.parentNode.classList.add("noslidenumber");
+        elem.parentNode.classList.add("toc-section");
         elem.parentNode.style = "text-align: left;"
         elem.parentNode.setAttribute("data-visibility", "uncounted");
         elem.innerHTML = '';
@@ -145,6 +146,7 @@
 
         var newSection = document.createElement("section");
         newSection.classList.add("noslidenumber");
+        newSection.classList.add("toc-section");
         newSection.style = "text-align: left;";
         newSection.setAttribute("data-visibility", "uncounted");
         var newh1 = document.createElement("h1");
@@ -170,6 +172,7 @@
 
         var newSection = document.createElement("section");
         newSection.classList.add("noslidenumber");
+        newSection.classList.add("toc-section");
         newSection.style = "text-align: left;";
         newSection.setAttribute("data-visibility", "uncounted");
         var newh1 = document.createElement("h1");

@@ -249,7 +249,7 @@
                 }
 
                 console.log(entered);
-                if (entered && entered.querySelector(".toc")){
+                if (entered && entered.classList.contains("toc-section")){
                     addTocTriangles();
                 } else {
                     removeTocTriangles();
