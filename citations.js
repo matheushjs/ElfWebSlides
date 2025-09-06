@@ -1,5 +1,6 @@
 allCitations = {
-    "junqueira2022solar": 'Junqueira Saldanha, Matheus Henrique, and Yoshito Hirata. "Solar activity facilitates daily forecasts of large earthquakes." Chaos: An Interdisciplinary Journal of Nonlinear Science 32.6 (2022).'
+    "junqueira2022solar": 'Junqueira Saldanha, M. H., & Hirata, Y. (2022). Solar activity facilitates daily forecasts of large earthquakes. Chaos: An Interdisciplinary Journal of Nonlinear Science, 32(6).',
+    "junqueira2025role": 'Junqueira Saldanha, M. H., Shiro, M., Yagi, Y., & Hirata, Y. (2025). The role of solar heat in earthquake activity. Chaos: An Interdisciplinary Journal of Nonlinear Science, 35(3).'
 }
 
 makeCitations = function(){
@@ -12,11 +13,14 @@ makeCitations = function(){
         var footnoteDiv = document.createElement("div");
         footnoteDiv.classList = ["footnotes"];
         var citationCounter = 1;
-        spans.forEach( span => {
+        spans.forEach(span => {
             if(span.classList.contains("footfullcite")){
-                handle = span.innerText;
-                span.innerHTML = "<sup>" + String(citationCounter) + "</sup>";
-                footnoteDiv.innerText = footnoteDiv.innerText + allCitations[handle];
+                var handle = span.innerText;
+                var superscript = "<sup>" + String(citationCounter) + "</sup>"
+                span.innerHTML = superscript;
+                var newP = document.createElement("p");
+                newP.innerHTML = superscript + " " + allCitations[handle];
+                footnoteDiv.appendChild(newP);
                 citationCounter = citationCounter + 1;
             }
         });
