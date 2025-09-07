@@ -15,7 +15,7 @@ makeCitations = function(){
         var citationCounter = 1;
         spans.forEach(span => {
             if(span.classList.contains("footfullcite")){
-                var handle = span.innerText;
+                var handle = span.innerHTML; // Using innerHTML since innerText apparently is blank when inside a 'fragment'
                 var superscript = "<sup>" + String(citationCounter) + "</sup>"
                 span.innerHTML = superscript;
                 var newP = document.createElement("p");
