@@ -8,6 +8,10 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   color: #fff;
 }
 
+q {
+  font-style: normal !important;
+}
+
 .reveal .slides section .footnotes {
   text-align: left;
   margin: 20px 0 0 0;
