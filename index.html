@@ -125,30 +125,19 @@
                             1. 編集距離
                 </script></section>
 
-                <section data-markdown data-subsection="Demo 1"><script type="text/template">
-                    ## Demo 1
-                    Slide 3
-                </script></section>
+                <section data-section="Fragments">
+                    <h1>This is a slide split into fragments</h1>
 
-                <section data-markdown data-section="Demo 2"><script type="text/template">
-                    ## Demo 2
-                    Slide 1.1
-                </script></section>
+                    <ul>
+                        <li>This is one bullet point.</li>
+                    </ul>
 
-                <section data-markdown data-subsection="Demo 2 subsection"><script type="text/template">
-                    ## Demo 2
-                    Slide 1.2
-                </script></section>
+                    <hr>
 
-                <section data-markdown data-subsection="Demo 2 subsection 2"><script type="text/template">
-                    ## Demo 2
-                    Slide 2
-                </script></section>
-
-                <!-- No "extra" slides, since the separator can't be matched ("---" will become horizontal rulers) -->
-                <section data-markdown data-separator="$x">
-                    <script type="text/template">
-                        A
+                    <ul class="fragment">
+                        <li>This is the next bullet point.</li>
+                    </ul>
+                </section>
 
                         ---
 
