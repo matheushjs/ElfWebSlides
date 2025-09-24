@@ -139,14 +139,59 @@
                     </ul>
                 </section>
 
-                        ---
+                <section data-section="Columns">
+                    <h1>You can organize your content in columns</h1>
 
-                        B
+                    <div class="container">
+                        <div class="col">
+                            <p style="background-color: red;">Hello</p>
+                        </div>
+                        <div class="col">
+                            <p style="background-color: green;">Hello</p>
+                        </div>
+                    </div>
 
-                        ---
+                    <ul>
+                        <li>More columns work as well:</li>
+                    </ul>
 
-                        C
-                    </script>
+                    <div class="container">
+                        <div class="col">
+                            <p style="background-color: red;">Hello</p>
+                        </div>
+                        <div class="col">
+                            <p style="background-color: green;">Hello</p>
+                        </div>
+                        <div class="col">
+                            <p style="background-color: blue;">Hello</p>
+                        </div>
+                    </div>
+
+                    <ul>
+                        <li>Uneven columns:</li>
+                    </ul>
+
+                    <div class="container">
+                        <div class="col" style="flex: 0 0 20%;">
+                            <p style="background-color: red;">Hello</p>
+                        </div>
+                        <div class="col" style="flex: 0 0 50%;">
+                            <p style="background-color: green;">Hello</p>
+                        </div>
+                        <div class="col" style="flex: 0 0 30%;">
+                            <p style="background-color: blue;">Hello</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section data-section="Slide control" data-subsection="Slide numbers" class="noslidenumber" data-visibility="uncounted">
+                    <h3>This slide has no number and does not count towards the slide count.</h3>
+                </section>
+
+                <section data-notoc data-subsection="Supressing TOC">
+                    <h3>This slide introduces a subsection, but no TOC came before it.</h3>
+
+                    <h3>Works for sections too.</h3>
                 </section>
 
                 <!-- Slide attributes -->
