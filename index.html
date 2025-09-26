@@ -195,24 +195,22 @@
                 </section>
 
                 <!-- Slide attributes -->
-                <section data-markdown>
+                <section data-markdown data-section="Slide Attributes">
                     <script type="text/template">
                         <!-- .slide: data-background="#000000" -->
-                        ## Slide attributes
+                        ## Slide attributes (with Markdown)
                     </script>
                 </section>
 
-                <!-- Element attributes -->
-                <section data-markdown>
-                    <script type="text/template">
-                        ## Element attributes
-                        - Item 1 <!-- .element: class="fragment" data-fragment-index="2" -->
-                        - Item 2 <!-- .element: class="fragment" data-fragment-index="1" -->
-                    </script>
+                <section data-background="#000000">
+                    <h2>Slide attributes (with HTML)</h2>
                 </section>
 
-                <!-- Code -->
-                <section data-markdown>
+                <section data-markdown data-section="Displaying code snippets">
+                    <ul>
+                        <li>It is possible to highlight specific lines</li>
+                        <li>Changing the highlight in each fragment is also possible</li>
+                    </ul>
                     <script type="text/template">
                         ```php [1|3-5]
                         public function foo()
@@ -227,6 +225,9 @@
 
                 <!-- add optional line count offset, in this case 287 -->
                 <section data-markdown>
+                    <ul>
+                        <li>Adding an offset to the line numbering</li>
+                    </ul>
                     <script type="text/template">
                         ## echo.c
 
@@ -244,23 +245,22 @@
                     </script>
                 </section>
 
-                <!-- Images -->
-                <section data-markdown>
-                    <script type="text/template">
-                        ![Sample image](https://static.slid.es/logo/v2/slides-symbol-512x512.png)
-                    </script>
-                </section>
-
                 <!-- Math -->
-                <section data-markdown>
-					## The Lorenz Equations
-					$$
-                    \begin{aligned}
-					\dot{x} & = \sigma(y-x) \\\\
-					\dot{y} & = \rho x - y - xz \\\\
-					\dot{z} & = -\beta z + xy
-					\end{aligned}
-                    $$
+                <section data-markdown data-section="Displaying Math">
+                    <script type="text/template">
+                        ## The Lorenz Equations
+                        $$
+                        \begin{aligned}
+                        \dot{x} & = \sigma(y-x) \\\\
+                        \dot{y} & = \rho x - y - xz \\\\
+                        \dot{z} & = -\beta z + xy
+                        \end{aligned}
+                        $$
+
+                        - This is inline $f(x) = x\cdot(1-x)$
+
+                        - This is a vector (we customized '\\vec'): $\vec{v}$
+                    </script>
                 </section>
 
             </div>
