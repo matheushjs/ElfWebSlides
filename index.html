@@ -276,8 +276,10 @@
         <script src="./triangles.js"></script>
         <script src="./tocmaker.js"></script>
         <script src="./citations.js"></script>
+        <!-- <script src="./js/socket.io.min.js"></script> -->
+        <!-- <script src="./plugin/remote/remote.js"></script> -->
 
-		<script>
+        <script>
 
 			Reveal.initialize({
                 width: 960*1.2,
@@ -289,7 +291,7 @@
                 slideNumber: "c",
                 pdfSeparateFragments: false,
                 
-				plugins: [ RevealZoom, RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX, RevealPointer ],
+				plugins: [ RevealZoom, RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX, RevealPointer ], // RevealRemote
 
                 pointer: {
                     key: "q", // key to enable pointer, default "q", not case-sensitive
